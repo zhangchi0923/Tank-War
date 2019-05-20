@@ -7,7 +7,7 @@ public class Tank {
     private int x, y;
     private Dir dir = Dir.DOWN;
     private final int SPEED = 5;
-    private boolean moving = false;
+    private boolean moving = true;
     private boolean isAlive = true;
     private Random random = new Random();
     private Group group = Group.EVIL;
@@ -65,7 +65,6 @@ public class Tank {
         if(!isAlive){
             tf.tanks.remove(this);
         }
-        Color c = g.getColor();
         switch(dir){
         case LEFT:
             g.drawImage(ResourceManager.tankL,x,y,null);
@@ -103,9 +102,16 @@ public class Tank {
             y += SPEED;
             break;
         }
-        if(group == Group.EVIL){
-            if(random.nextInt(10)>8) fire();
+        if(group == Group.EVIL && random.nextInt(100)>95){
+            fire();
         }
+        if(group == Group.EVIL && random.nextInt(100)>85){
+            randDir();
+        }
+    }
+
+    private void randDir() {
+        this.dir = Dir.values()[random.nextInt(4)];
     }
 
     public void fire() {
