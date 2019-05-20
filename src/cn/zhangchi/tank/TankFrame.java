@@ -15,6 +15,7 @@ public class TankFrame extends Frame {
 
     Tank myTank = new Tank(200,200,Dir.DOWN,this);
     List<Bullet> bullets = new ArrayList<>();
+    List<Tank> tanks = new ArrayList<>();
 //    EnemyTank eTank = new EnemyTank(400,200,Dir.DOWN,this);
 
     public TankFrame(){
@@ -67,6 +68,9 @@ public class TankFrame extends Frame {
             bullets.get(i).paint(g);
         }
 
+        for(int i=0;i<tanks.size();i++){
+            tanks.get(i).paint(g);
+        }
 //        eTank.paint(g);
     }
     // 新建一个类处理键盘输入，键盘的按下、松开改变的是dir的值
