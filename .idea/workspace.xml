@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b263e71-7d00-424b-aad2-724725c60d59" name="Default Changelist" comment="" />
+    <list default="true" id="3b263e71-7d00-424b-aad2-724725c60d59" name="Default Changelist" comment="创建EnemyTank为了测试敌方坦克，但是还没成功；新增ResourceManager管理图片资源">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/EnemyTank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTank.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/META-INF/Tank.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/Bullet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/Bullet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/Dir.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/Tank$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/TankFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/TankFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/TankFrame$MyKeyListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tank/cn/zhangchi/tank/TankFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,36 +33,58 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="MyTank" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="64" column="78" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
+            <state relative-caret-position="1005">
+              <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#640#794#0" expanded="true" />
-                <element signature="e#793#794#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/ResourceManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="63" column="67" lean-forward="true" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
+            <state relative-caret-position="405">
+              <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/EnemyTank.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -49,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -70,19 +113,26 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/T.java" />
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Dir.java" />
-        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Main.java" />
-        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" />
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/enemyTank.java" />
+        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/EnemyTank.java" />
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java" />
+        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/ResourceManager.java" />
+        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" />
+        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Main.java" />
       </list>
     </option>
   </component>
@@ -90,39 +140,45 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tank" type="462c0819:PsiDirectoryNode" />
+              <item name="MyTank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyTank" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Tank" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="MyTank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyTank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
+    <property name="settings.editor.selected.configurable" value="plugins.junitgenerator.application" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -139,7 +195,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.zhangchi.tank.Main" />
-      <module name="Tank" />
+      <module name="MyTank" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cn.zhangchi.tank.*" />
@@ -168,26 +224,30 @@
       <updated>1557967361492</updated>
       <workItem from="1557967366144" duration="17630000" />
       <workItem from="1558181236576" duration="3653000" />
+      <workItem from="1558231309547" duration="3565000" />
+      <workItem from="1558312868872" duration="2217000" />
+      <workItem from="1558315745417" duration="889000" />
+      <workItem from="1558316833076" duration="1014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21283000" />
+    <option name="totallyTimeSpent" value="28968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.497307" visible="true" weight="0.2532189" />
-      <window_info id="Structure" order="1" sideWeight="0.502693" side_tool="true" visible="true" weight="0.2532189" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4901257" visible="true" weight="0.26752505" />
+      <window_info id="Structure" order="1" sideWeight="0.50987434" side_tool="true" weight="0.26752505" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Learn" order="7" />
+      <window_info id="Favorites" order="6" sideWeight="0.50987434" side_tool="true" weight="0.26752505" />
+      <window_info id="Learn" order="7" sideWeight="0.49879518" weight="0.3297568" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -195,9 +255,9 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -212,18 +272,51 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="创建EnemyTank为了测试敌方坦克，但是还没成功；新增ResourceManager管理图片资源" />
+    <option name="LAST_COMMIT_MESSAGE" value="创建EnemyTank为了测试敌方坦克，但是还没成功；新增ResourceManager管理图片资源" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/src.zip!/java/awt/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
           <caret line="134" column="13" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -234,29 +327,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="63" column="67" lean-forward="true" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/images/tankL.gif">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java">
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+        <state relative-caret-position="225">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="64" column="78" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
+        <state relative-caret-position="1005">
+          <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#640#794#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/EnemyTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/ResourceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
         </state>
       </provider>
     </entry>

@@ -7,13 +7,21 @@ public class Bullet {
     private int x, y;
     private Dir dir;
     private TankFrame tf;
-    private static final int WIDTH = 20, HEIGHT = 12;
+    static final int WIDTH = 20, HEIGHT = 12;
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
     public Bullet(int x, int y, Dir dir, TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.tf = tf;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public void paint(Graphics g){

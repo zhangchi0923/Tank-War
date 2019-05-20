@@ -31,10 +31,7 @@ public class Tank {
 
     public void paint(Graphics g){
         Color c = g.getColor();
-        g.setColor(Color.BLUE);
-        g.fillRect(x,y,50,50);
-        // 根据键盘的输出结果控制x、y的改变
-        g.setColor(c);
+        g.drawImage(ResourceManager.tankL,x,y,null);
 
         move();
 

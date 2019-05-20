@@ -8,7 +8,6 @@ import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.ArrayList;
 
-import static com.sun.glass.ui.Cursor.setVisible;
 
 // 继承Frame是为了重写其方法
 public class TankFrame extends Frame {
@@ -16,6 +15,7 @@ public class TankFrame extends Frame {
 
     Tank myTank = new Tank(200,200,Dir.DOWN,this);
     List<Bullet> bullets = new ArrayList<>();
+//    EnemyTank eTank = new EnemyTank(400,200,Dir.DOWN,this);
 
     public TankFrame(){
         setVisible(true);
@@ -66,6 +66,8 @@ public class TankFrame extends Frame {
         for(int i=0;i<bullets.size();i++){
             bullets.get(i).paint(g);
         }
+
+//        eTank.paint(g);
     }
     // 新建一个类处理键盘输入，键盘的按下、松开改变的是dir的值
     class MyKeyListener extends KeyAdapter{
