@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b263e71-7d00-424b-aad2-724725c60d59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="84" column="64" selection-start-line="84" selection-start-column="64" selection-end-line="84" selection-end-column="64" />
+            <state relative-caret-position="395">
+              <caret line="86" column="45" selection-start-line="86" selection-start-column="45" selection-end-line="86" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1934#1935#0" expanded="true" />
@@ -160,8 +159,8 @@
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/ImageUtil.java" />
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/ResourceManager.java" />
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Main.java" />
-        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java" />
         <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" />
+        <option value="$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java" />
       </list>
     </option>
   </component>
@@ -277,7 +276,7 @@
       <workItem from="1558312868872" duration="2217000" />
       <workItem from="1558315745417" duration="889000" />
       <workItem from="1558316833076" duration="2324000" />
-      <workItem from="1558335554523" duration="13725000" />
+      <workItem from="1558335554523" duration="14065000" />
     </task>
     <task id="LOCAL-00001" summary="创建EnemyTank为了测试敌方坦克，但是还没成功；新增ResourceManager管理图片资源">
       <created>1558318039497</created>
@@ -335,17 +334,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558352900100</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="敌人坦克随机移动">
+      <created>1558353871168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1558353871168</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44003000" />
+    <option name="totallyTimeSpent" value="44343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4901257" visible="true" weight="0.27110156" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4901257" visible="true" weight="0.27110156" />
       <window_info id="Structure" order="1" sideWeight="0.50987434" side_tool="true" weight="0.26752505" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -355,7 +361,7 @@
       <window_info id="Learn" order="7" sideWeight="0.49879518" weight="0.3297568" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -439,7 +445,8 @@
     <MESSAGE value="枚举类型Group区分敌我，不开启队友伤害，敌人坦克随机发射子弹。" />
     <MESSAGE value="画出爆炸。创建新的类Explode，其paint方法将ResourceManager中的16张爆炸图片加载进来。" />
     <MESSAGE value="完善爆炸方法：当发生碰撞时爆炸，爆炸一次过后在List中remove；更新坦克图片，并用ImageUtil辅助类实现图片旋转" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善爆炸方法：当发生碰撞时爆炸，爆炸一次过后在List中remove；更新坦克图片，并用ImageUtil辅助类实现图片旋转" />
+    <MESSAGE value="敌人坦克随机移动" />
+    <option name="LAST_COMMIT_MESSAGE" value="敌人坦克随机移动" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/src.zip!/java/awt/Frame.java">
@@ -509,25 +516,6 @@
     <entry file="file://$PROJECT_DIR$/src/images/bulletU.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="84" column="64" selection-start-line="84" selection-start-column="64" selection-end-line="84" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Group.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -535,13 +523,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Explode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -584,6 +565,32 @@
             <element signature="e#2340#2341#0" expanded="true" />
             <element signature="e#2484#2485#0" expanded="true" />
             <element signature="e#2520#2521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Explode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/zhangchi/tank/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="86" column="45" selection-start-line="86" selection-start-column="45" selection-end-line="86" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1934#1935#0" expanded="true" />
+            <element signature="e#1969#1970#0" expanded="true" />
           </folding>
         </state>
       </provider>
