@@ -1,5 +1,7 @@
 package cn.zhangchi.tank;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import java.awt.*;
 
 public class Bullet {
@@ -7,13 +9,15 @@ public class Bullet {
     private int x, y;
     private Dir dir;
     private TankFrame tf;
+    private Group group = Group.EVIL;
     static final int WIDTH = ResourceManager.bulletL.getWidth();
     static final int HEIGHT = ResourceManager.bulletL.getHeight();
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
-    public Bullet(int x, int y, Dir dir, TankFrame tf) {
+    public Bullet(int x, int y, Dir dir, Group group, TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.group = group;
         this.tf = tf;
     }
 
@@ -71,6 +75,8 @@ public class Bullet {
     }
 
     public void collidewith(Tank tank) {
+        if(this.group == tank.getGroup()) return;
+        //ToDo:只用一个rect记录边界，而不是每次都new出新rect
         Rectangle recB = new Rectangle(this.x,this.y,WIDTH,HEIGHT);
         Rectangle recT = new Rectangle(tank.getX(),tank.getY(),tank.WIDTH,tank.HEIGHT);
         if (recB.intersects(recT)){

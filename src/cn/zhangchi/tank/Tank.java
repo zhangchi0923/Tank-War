@@ -1,23 +1,35 @@
 package cn.zhangchi.tank;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Tank {
     private int x, y;
     private Dir dir = Dir.DOWN;
-    private final int SPEED = 10;
-    private boolean moving = false;
+    private final int SPEED = 5;
+    private boolean moving = true;
     private boolean isAlive = true;
+    private Random random = new Random();
+    private Group group = Group.EVIL;
     private TankFrame tf;
     static final int WIDTH = ResourceManager.tankL.getWidth();
     static final int HEIGHT = ResourceManager.tankL.getHeight();
 
-    public Tank(int x, int y, Dir dir,TankFrame tf) {
+    public Tank(int x, int y, Dir dir,Group group,TankFrame tf) {
         super();
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.group = group;
         this.tf = tf;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
     public int getX() {
@@ -91,12 +103,14 @@ public class Tank {
             y += SPEED;
             break;
         }
+
+        if(random.nextInt(10)>8) fire();
     }
 
     public void fire() {
         int bX = this.x + Tank.WIDTH/2 - Bullet.WIDTH/2;
         int bY = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2;
-        tf.bullets.add(new Bullet(bX,bY,this.dir,this.tf));
+        tf.bullets.add(new Bullet(bX,bY,this.dir,this.group,this.tf));
 
     }
 

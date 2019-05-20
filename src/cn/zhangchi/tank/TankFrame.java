@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class TankFrame extends Frame {
     static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
 
-    Tank myTank = new Tank(200,200,Dir.DOWN,this);
+    Tank myTank = new Tank(200,200,Dir.DOWN,Group.GOOD,this);
     List<Bullet> bullets = new ArrayList<>();
     List<Tank> tanks = new ArrayList<>();
 //    EnemyTank eTank = new EnemyTank(400,200,Dir.DOWN,this);
@@ -133,8 +133,9 @@ public class TankFrame extends Frame {
             case KeyEvent.VK_DOWN:
                 bD = false;
                 break;
-                case KeyEvent.VK_CONTROL:
+            case KeyEvent.VK_CONTROL:
                 myTank.fire();
+                break;
             default:
                 break;
             }
