@@ -13,12 +13,20 @@ public class Bullet {
     static final int WIDTH = ResourceManager.bulletL.getWidth();
     static final int HEIGHT = ResourceManager.bulletL.getHeight();
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
+
+    Rectangle rect = new Rectangle();
+
     public Bullet(int x, int y, Dir dir, Group group, TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
         this.tf = tf;
+
+        rect.x = this.x;
+        rect.y = this.y;
+        rect.width = WIDTH;
+        rect.height = HEIGHT;
     }
 
     public int getX() {
@@ -69,6 +77,10 @@ public class Bullet {
             y += SPEED;
             break;
         }
+
+        // update rect
+        rect.x = this.x;
+        rect.y = this.y;
         // 对TankFrame的引用在这里用上
         if(x<0 | y<0 | x>TankFrame.GAME_WIDTH | y>TankFrame.GAME_HEIGHT) isAlive = false;
 
@@ -77,9 +89,7 @@ public class Bullet {
     public void collidewith(Tank tank) {
         if(this.group == tank.getGroup()) return;
         //ToDo:只用一个rect记录边界，而不是每次都new出新rect
-        Rectangle recB = new Rectangle(this.x,this.y,WIDTH,HEIGHT);
-        Rectangle recT = new Rectangle(tank.getX(),tank.getY(),tank.WIDTH,tank.HEIGHT);
-        if (recB.intersects(recT)){
+        if (this.rect.intersects(tank.rect)){
             this.die();
             tank.die();
             int eX = tank.getX() + Tank.WIDTH/2 - Explode.WIDTH/2;

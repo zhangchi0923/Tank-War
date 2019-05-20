@@ -15,6 +15,8 @@ public class Tank {
     static final int WIDTH = ResourceManager.tankL.getWidth();
     static final int HEIGHT = ResourceManager.tankL.getHeight();
 
+    Rectangle rect = new Rectangle();
+
     public Tank(int x, int y, Dir dir,Group group,TankFrame tf) {
         super();
         this.x = x;
@@ -22,6 +24,12 @@ public class Tank {
         this.dir = dir;
         this.group = group;
         this.tf = tf;
+
+        rect.x = this.x;
+        rect.y = this.y;
+        rect.width = WIDTH;
+        rect.height = HEIGHT;
+
     }
 
     public Group getGroup() {
@@ -102,6 +110,7 @@ public class Tank {
             y += SPEED;
             break;
         }
+
         if(group == Group.EVIL && random.nextInt(100)>95){
             fire();
         }
@@ -110,6 +119,10 @@ public class Tank {
         }
 
         boundsCheck();
+        // update rect
+        rect.x = this.x;
+        rect.y = this.y;
+
     }
 
     private void boundsCheck() {
