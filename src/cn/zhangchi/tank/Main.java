@@ -9,7 +9,7 @@ public class Main {
         TankFrame tf = new TankFrame();
 
         for(int i=0;i<5;i++){
-            tf.tanks.add(new Tank(100+i*45,100,Dir.DOWN,Group.EVIL,tf));
+            tf.tanks.add(new Tank(100+i*70,100,Dir.DOWN,Group.EVIL,tf));
         }
         while(true) {
             Thread.sleep(50);

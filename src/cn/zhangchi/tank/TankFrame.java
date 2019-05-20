@@ -11,13 +11,12 @@ import java.util.ArrayList;
 
 // 继承Frame是为了重写其方法
 public class TankFrame extends Frame {
-    static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
+    static final int GAME_WIDTH = 1080, GAME_HEIGHT = 960;
 
     Tank myTank = new Tank(200,200,Dir.DOWN,Group.GOOD,this);
     List<Bullet> bullets = new ArrayList<>();
     List<Tank> tanks = new ArrayList<>();
-    Explode e = new Explode(100,100,this);
-//    EnemyTank eTank = new EnemyTank(400,200,Dir.DOWN,this);
+    List<Explode> explodes = new ArrayList<>();
 
     public TankFrame(){
         setVisible(true);
@@ -67,7 +66,7 @@ public class TankFrame extends Frame {
         // 这块的设计思维是，将Tank封装后我们不能一用到哪个Tank的属性就访问哪个属性
         // 这样就破坏了封装性，而是将画出Tank的任务交给Tank 本身
         myTank.paint(g);
-        e.paint(g);
+//        e.paint(g);
 
         // for循环要用简单循环，不能用iterator，会报ConcurrentException因为迭代器迭代时不能remove容器中的元素
         for(int i=0;i<bullets.size();i++){
@@ -82,6 +81,10 @@ public class TankFrame extends Frame {
             for(int j=0;j<tanks.size();j++){
                 bullets.get(i).collidewith(tanks.get(j));
             }
+        }
+
+        for(int i=0;i<explodes.size();i++){
+            explodes.get(i).paint(g);
         }
 //        eTank.paint(g);
     }

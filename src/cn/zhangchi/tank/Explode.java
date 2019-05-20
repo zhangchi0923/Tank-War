@@ -24,9 +24,13 @@ public class Explode {
     }
 
     public void paint(Graphics g) {
-        g.drawImage(ResourceManager.explodes[step++],x,y,null);
+        if(!isAlive){
+            tf.explodes.remove(this);
+        }
         if(step >= ResourceManager.explodes.length){
-            step = 0;
+            isAlive = false;
+        }else{
+            g.drawImage(ResourceManager.explodes[step++],x,y,null);
         }
     }
 }

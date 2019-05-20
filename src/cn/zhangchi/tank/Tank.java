@@ -7,7 +7,7 @@ public class Tank {
     private int x, y;
     private Dir dir = Dir.DOWN;
     private final int SPEED = 5;
-    private boolean moving = true;
+    private boolean moving = false;
     private boolean isAlive = true;
     private Random random = new Random();
     private Group group = Group.EVIL;
@@ -103,8 +103,9 @@ public class Tank {
             y += SPEED;
             break;
         }
-
-        if(random.nextInt(10)>8) fire();
+        if(group == Group.EVIL){
+            if(random.nextInt(10)>8) fire();
+        }
     }
 
     public void fire() {
