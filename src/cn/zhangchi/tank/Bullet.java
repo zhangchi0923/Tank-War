@@ -3,11 +3,12 @@ package cn.zhangchi.tank;
 import java.awt.*;
 
 public class Bullet {
-    private static final int SPEED = 3;
+    private static final int SPEED = 10;
     private int x, y;
     private Dir dir;
     private TankFrame tf;
-    static final int WIDTH = 20, HEIGHT = 12;
+    static final int WIDTH = ResourceManager.bulletL.getWidth();
+    static final int HEIGHT = ResourceManager.bulletL.getHeight();
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
     public Bullet(int x, int y, Dir dir, TankFrame tf) {
         this.x = x;
