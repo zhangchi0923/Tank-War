@@ -67,16 +67,16 @@ public class Tank {
         }
         switch(dir){
         case LEFT:
-            g.drawImage(ResourceManager.tankL,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.tankL:ResourceManager.goodTankL,x,y,null);
             break;
         case RIGHT:
-            g.drawImage(ResourceManager.tankR,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.tankR:ResourceManager.goodTankR,x,y,null);
             break;
         case UP:
-            g.drawImage(ResourceManager.tankU,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.tankU:ResourceManager.goodTankU,x,y,null);
             break;
         case DOWN:
-            g.drawImage(ResourceManager.tankD,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.tankD:ResourceManager.goodTankD,x,y,null);
             break;
         }
 

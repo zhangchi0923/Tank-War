@@ -5,7 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class ResourceManager {
-    public static BufferedImage tankL,tankR,tankU,tankD,bulletL,bulletR,bulletU,bulletD;
+    public static BufferedImage tankL,tankR,tankU,tankD,goodTankL,goodTankR,goodTankU,goodTankD;
+    public static BufferedImage bulletL,bulletR,bulletU,bulletD;
     public static BufferedImage[] explodes = new BufferedImage[16];
     static{
         try {
@@ -13,6 +14,11 @@ public class ResourceManager {
             tankL = ImageUtil.rotateImage(tankU,-90);
             tankR = ImageUtil.rotateImage(tankU,90);
             tankD = ImageUtil.rotateImage(tankU,180);
+
+            goodTankU = ImageIO.read(ResourceManager.class.getClassLoader().getResourceAsStream("images/GoodTank1.png"));
+            goodTankL = ImageUtil.rotateImage(goodTankU,-90);
+            goodTankR = ImageUtil.rotateImage(goodTankU,90);
+            goodTankD = ImageUtil.rotateImage(goodTankU,180);
 
             bulletU = ImageIO.read(ResourceManager.class.getClassLoader().getResourceAsStream("images/bulletU.png"));
             bulletL = ImageUtil.rotateImage(bulletU,-90);
