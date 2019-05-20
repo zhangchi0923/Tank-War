@@ -7,6 +7,7 @@ public class Tank {
     private Dir dir = Dir.DOWN;
     private final int SPEED = 10;
     private boolean moving = false;
+    private boolean isAlive = true;
     private TankFrame tf;
     static final int WIDTH = ResourceManager.tankL.getWidth();
     static final int HEIGHT = ResourceManager.tankL.getHeight();
@@ -18,6 +19,23 @@ public class Tank {
         this.dir = dir;
         this.tf = tf;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     public void setDir(Dir dir){
         this.dir = dir;
     }
@@ -32,6 +50,9 @@ public class Tank {
 
 
     public void paint(Graphics g){
+        if(!isAlive){
+            tf.tanks.remove(this);
+        }
         Color c = g.getColor();
         switch(dir){
         case LEFT:
@@ -77,5 +98,9 @@ public class Tank {
         int bY = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2;
         tf.bullets.add(new Bullet(bX,bY,this.dir,this.tf));
 
+    }
+
+    public void die() {
+        this.isAlive = false;
     }
 }

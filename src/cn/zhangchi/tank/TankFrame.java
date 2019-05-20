@@ -57,8 +57,12 @@ public class TankFrame extends Frame {
     public void paint(Graphics g){
         Color c = g.getColor();
         g.setColor(Color.WHITE);
+        // 显示子弹数量
         g.drawString("number of bullets: "+bullets.size(),10,60);
+        // 显示敌人坦克数量
+        g.drawString("number of enemies: "+tanks.size(),10,80);
         g.setColor(c);
+
         // 这块的设计思维是，将Tank封装后我们不能一用到哪个Tank的属性就访问哪个属性
         // 这样就破坏了封装性，而是将画出Tank的任务交给Tank 本身
         myTank.paint(g);
@@ -70,6 +74,12 @@ public class TankFrame extends Frame {
 
         for(int i=0;i<tanks.size();i++){
             tanks.get(i).paint(g);
+        }
+
+        for(int i=0;i<bullets.size();i++){
+            for(int j=0;j<tanks.size();j++){
+                bullets.get(i).collidewith(tanks.get(j));
+            }
         }
 //        eTank.paint(g);
     }
