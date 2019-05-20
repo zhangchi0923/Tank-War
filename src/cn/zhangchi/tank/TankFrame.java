@@ -16,6 +16,7 @@ public class TankFrame extends Frame {
     Tank myTank = new Tank(200,200,Dir.DOWN,Group.GOOD,this);
     List<Bullet> bullets = new ArrayList<>();
     List<Tank> tanks = new ArrayList<>();
+    Explode e = new Explode(100,100,this);
 //    EnemyTank eTank = new EnemyTank(400,200,Dir.DOWN,this);
 
     public TankFrame(){
@@ -66,6 +67,7 @@ public class TankFrame extends Frame {
         // 这块的设计思维是，将Tank封装后我们不能一用到哪个Tank的属性就访问哪个属性
         // 这样就破坏了封装性，而是将画出Tank的任务交给Tank 本身
         myTank.paint(g);
+        e.paint(g);
 
         // for循环要用简单循环，不能用iterator，会报ConcurrentException因为迭代器迭代时不能remove容器中的元素
         for(int i=0;i<bullets.size();i++){
