@@ -3,7 +3,7 @@ package cn.zhangchi.tank;
 import java.awt.*;
 
 public class Bullet {
-    private static final int SPEED = 1;
+    private static final int SPEED = 3;
     private int x, y;
     private Dir dir;
     private TankFrame tf;
@@ -28,10 +28,22 @@ public class Bullet {
         if(!isAlive){
             tf.bullets.remove(this);
         }
-        Color c = g.getColor();
-        g.setColor(Color.RED);
-        g.fillOval(x,y,WIDTH,HEIGHT);
-        g.setColor(c);
+        switch(dir){
+        case LEFT:
+            g.drawImage(ResourceManager.bulletL,x,y,null);
+            break;
+        case RIGHT:
+            g.drawImage(ResourceManager.bulletR,x,y,null);
+            break;
+
+        case UP:
+            g.drawImage(ResourceManager.bulletU,x,y,null);
+            break;
+
+        case DOWN:
+            g.drawImage(ResourceManager.bulletD,x,y,null);
+            break;
+        }
 
         move();
     }
