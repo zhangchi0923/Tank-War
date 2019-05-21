@@ -11,4 +11,8 @@
 
     #bullet speed
     bulletSpeed=13
+
+    #firestrategy
+    goodFs=cn.zhangchi.tank.FourDirFireStrategy
+    badFs=cn.zhangchi.tank.DefaultFire
 </tag>

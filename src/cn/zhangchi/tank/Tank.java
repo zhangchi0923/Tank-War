@@ -17,6 +17,8 @@ public class Tank {
 
     Rectangle rect = new Rectangle();
 
+    FireStrategy fs;
+
     public Tank(int x, int y, Dir dir,Group group,TankFrame tf) {
         super();
         this.x = x;
@@ -30,6 +32,30 @@ public class Tank {
         rect.width = WIDTH;
         rect.height = HEIGHT;
 
+        if(group == Group.GOOD){
+            String goodFsName = (String) PropertyManager.props.get("goodFs");
+            try {
+                fs = (FireStrategy) Class.forName(goodFsName).newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            String badFsName = (String) PropertyManager.props.get("badFs");
+            try {
+                fs = (FireStrategy) Class.forName(badFsName).newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Group getGroup() {
@@ -60,6 +86,10 @@ public class Tank {
         this.dir = dir;
     }
 
+    public Dir getDir() {
+        return dir;
+    }
+
     public boolean isMoving() {
         return moving;
     }
@@ -68,6 +98,13 @@ public class Tank {
         this.moving = moving;
     }
 
+    public TankFrame getTf() {
+        return tf;
+    }
+
+    public void setTf(TankFrame tf) {
+        this.tf = tf;
+    }
 
     public void paint(Graphics g){
         if(!isAlive){
@@ -137,10 +174,7 @@ public class Tank {
     }
 
     public void fire() {
-        int bX = this.x + Tank.WIDTH/2 - Bullet.WIDTH/2;
-        int bY = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2;
-        tf.bullets.add(new Bullet(bX,bY,this.dir,this.group,this.tf));
-
+        fs.fire(this);
     }
 
     public void die() {
