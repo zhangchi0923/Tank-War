@@ -6,7 +6,7 @@ import java.util.Random;
 public class Tank {
     private int x, y;
     private Dir dir = Dir.DOWN;
-    private final int SPEED = 5;
+    private final int SPEED = PropertyManager.getInt("tankSpeed");
     private boolean moving = true;
     private boolean isAlive = true;
     private Random random = new Random();

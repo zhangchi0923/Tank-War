@@ -11,7 +11,8 @@ import java.util.ArrayList;
 
 // 继承Frame是为了重写其方法
 public class TankFrame extends Frame {
-    static final int GAME_WIDTH = 1280, GAME_HEIGHT = 960;
+    static final int GAME_WIDTH = PropertyManager.getInt("gameWidth");
+    static final int GAME_HEIGHT = PropertyManager.getInt("gameHeight");
 
     Tank myTank = new Tank(200,200,Dir.DOWN,Group.GOOD,this);
     List<Bullet> bullets = new ArrayList<>();

@@ -1,2 +1,14 @@
-#tanks number at initialization
-initTankCount=10
+<tag>
+    #tanks number at initialization
+    initTankCount=10
+
+    #Window size init
+    gameWidth=1080
+    gameHeight=720
+
+    #tank speed
+    tankSpeed=7
+
+    #bullet speed
+    bulletSpeed=13
+</tag>

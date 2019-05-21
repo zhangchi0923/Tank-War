@@ -14,12 +14,17 @@ public class PropertyManager {
         }
     }
 
-    public static Object get(String key){
+    public static int getInt(String key){
+        if(props == null) return 0;
+        return Integer.parseInt((String)props.get(key));
+    }
+
+    public static String getString(String key){
         if(props == null) return null;
-        return props.get(key);
+        return (String) props.get(key);
     }
 
     public static void main(String[] args) {
-        System.out.println(PropertyManager.get("initTankCount"));
+        System.out.println(PropertyManager.getInt("initTankCount"));
     }
 }

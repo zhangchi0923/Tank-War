@@ -5,7 +5,7 @@ import com.sun.xml.internal.bind.v2.TODO;
 import java.awt.*;
 
 public class Bullet {
-    private static final int SPEED = 10;
+    private static final int SPEED = PropertyManager.getInt("bulletSpeed");
     private int x, y;
     private Dir dir;
     private TankFrame tf;
