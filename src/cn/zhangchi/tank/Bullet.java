@@ -10,8 +10,8 @@ public class Bullet {
     private Dir dir;
     private TankFrame tf;
     private Group group = Group.EVIL;
-    static final int WIDTH = ResourceManager.bulletL.getWidth();
-    static final int HEIGHT = ResourceManager.bulletL.getHeight();
+    static final int WIDTH = ResourceManager.getInstance().getBulletL().getWidth();
+    static final int HEIGHT = ResourceManager.getInstance().getBulletL().getHeight();
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
 
     Rectangle rect = new Rectangle();
@@ -43,18 +43,18 @@ public class Bullet {
         }
         switch(dir){
         case LEFT:
-            g.drawImage(ResourceManager.bulletL,x,y,null);
+            g.drawImage(ResourceManager.getInstance().getBulletL(),x,y,null);
             break;
         case RIGHT:
-            g.drawImage(ResourceManager.bulletR,x,y,null);
+            g.drawImage(ResourceManager.getInstance().getBulletR(),x,y,null);
             break;
 
         case UP:
-            g.drawImage(ResourceManager.bulletU,x,y,null);
+            g.drawImage(ResourceManager.getInstance().getBulletU(),x,y,null);
             break;
 
         case DOWN:
-            g.drawImage(ResourceManager.bulletD,x,y,null);
+            g.drawImage(ResourceManager.getInstance().getBulletD(),x,y,null);
             break;
         }
 

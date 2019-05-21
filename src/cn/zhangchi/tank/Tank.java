@@ -12,8 +12,8 @@ public class Tank {
     private Random random = new Random();
     private Group group = Group.EVIL;
     private TankFrame tf;
-    static final int WIDTH = ResourceManager.tankL.getWidth();
-    static final int HEIGHT = ResourceManager.tankL.getHeight();
+    static final int WIDTH = ResourceManager.getInstance().getTankL().getWidth();
+    static final int HEIGHT = ResourceManager.getInstance().getTankL().getHeight();
 
     Rectangle rect = new Rectangle();
 
@@ -75,16 +75,16 @@ public class Tank {
         }
         switch(dir){
         case LEFT:
-            g.drawImage(group == Group.EVIL? ResourceManager.tankL:ResourceManager.goodTankL,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.getInstance().getTankL():ResourceManager.getInstance().getGoodTankL(),x,y,null);
             break;
         case RIGHT:
-            g.drawImage(group == Group.EVIL? ResourceManager.tankR:ResourceManager.goodTankR,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.getInstance().getTankR():ResourceManager.getInstance().getGoodTankR(),x,y,null);
             break;
         case UP:
-            g.drawImage(group == Group.EVIL? ResourceManager.tankU:ResourceManager.goodTankU,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.getInstance().getTankU():ResourceManager.getInstance().getGoodTankU(),x,y,null);
             break;
         case DOWN:
-            g.drawImage(group == Group.EVIL? ResourceManager.tankD:ResourceManager.goodTankD,x,y,null);
+            g.drawImage(group == Group.EVIL? ResourceManager.getInstance().getTankD():ResourceManager.getInstance().getGoodTankD(),x,y,null);
             break;
         }
 

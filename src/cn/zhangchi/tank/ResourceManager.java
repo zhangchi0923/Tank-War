@@ -5,10 +5,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class ResourceManager {
-    public static BufferedImage tankL,tankR,tankU,tankD,goodTankL,goodTankR,goodTankU,goodTankD;
-    public static BufferedImage bulletL,bulletR,bulletU,bulletD;
-    public static BufferedImage[] explodes = new BufferedImage[16];
-    static{
+    private BufferedImage tankL,tankR,tankU,tankD,goodTankL,goodTankR,goodTankU,goodTankD;
+    private BufferedImage bulletL,bulletR,bulletU,bulletD;
+    private BufferedImage[] explodes = new BufferedImage[16];
+
+    private static final ResourceManager INSTANCE = new ResourceManager();
+
+    private ResourceManager(){
         try {
             tankU = ImageIO.read(ResourceManager.class.getClassLoader().getResourceAsStream("images/BadTank1.png"));
             tankL = ImageUtil.rotateImage(tankU,-90);
@@ -31,5 +34,61 @@ public class ResourceManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    // 业务方法
+    public BufferedImage getTankL() {
+        return tankL;
+    }
+
+    public BufferedImage getTankR() {
+        return tankR;
+    }
+
+    public BufferedImage getTankU() {
+        return tankU;
+    }
+
+    public BufferedImage getTankD() {
+        return tankD;
+    }
+
+    public BufferedImage getGoodTankL() {
+        return goodTankL;
+    }
+
+    public BufferedImage getGoodTankR() {
+        return goodTankR;
+    }
+
+    public BufferedImage getGoodTankU() {
+        return goodTankU;
+    }
+
+    public BufferedImage getGoodTankD() {
+        return goodTankD;
+    }
+
+    public BufferedImage getBulletL() {
+        return bulletL;
+    }
+
+    public BufferedImage getBulletR() {
+        return bulletR;
+    }
+
+    public BufferedImage getBulletU() {
+        return bulletU;
+    }
+
+    public BufferedImage getBulletD() {
+        return bulletD;
+    }
+
+    public BufferedImage[] getExplodes() {
+        return explodes;
+    }
+    // getInstance() 方法
+    public static ResourceManager getInstance(){
+        return INSTANCE;
     }
 }
