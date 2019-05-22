@@ -11,13 +11,12 @@ import java.util.ArrayList;
 
 // 继承Frame是为了重写其方法
 public class TankFrame extends Frame {
+
+    GameModel gm = new GameModel();
+
     static final int GAME_WIDTH = PropertyManager.getInt("gameWidth");
     static final int GAME_HEIGHT = PropertyManager.getInt("gameHeight");
 
-    Tank myTank = new Tank(200,200,Dir.DOWN,Group.GOOD,this);
-    List<Bullet> bullets = new ArrayList<>();
-    List<Tank> tanks = new ArrayList<>();
-    List<Explode> explodes = new ArrayList<>();
 
     public TankFrame(){
         setVisible(true);
@@ -56,37 +55,9 @@ public class TankFrame extends Frame {
     // 那么怎么调用呢？需要有个东西来触发paint方法
     // 主程序中的repaint()方法调用paint()
     public void paint(Graphics g){
-        Color c = g.getColor();
-        g.setColor(Color.WHITE);
-        // 显示子弹数量
-        g.drawString("number of bullets: "+bullets.size(),10,60);
-        // 显示敌人坦克数量
-        g.drawString("number of enemies: "+tanks.size(),10,80);
-        g.setColor(c);
 
-        // 这块的设计思维是，将Tank封装后我们不能一用到哪个Tank的属性就访问哪个属性
-        // 这样就破坏了封装性，而是将画出Tank的任务交给Tank 本身
-        myTank.paint(g);
-//        e.paint(g);
+        gm.paint(g);
 
-        // for循环要用简单循环，不能用iterator，会报ConcurrentException因为迭代器迭代时不能remove容器中的元素
-        for(int i=0;i<bullets.size();i++){
-            bullets.get(i).paint(g);
-        }
-
-        for(int i=0;i<tanks.size();i++){
-            tanks.get(i).paint(g);
-        }
-
-        for(int i=0;i<bullets.size();i++){
-            for(int j=0;j<tanks.size();j++){
-                bullets.get(i).collidewith(tanks.get(j));
-            }
-        }
-
-        for(int i=0;i<explodes.size();i++){
-            explodes.get(i).paint(g);
-        }
 //        eTank.paint(g);
     }
     // 新建一个类处理键盘输入，键盘的按下、松开改变的是dir的值
@@ -140,7 +111,7 @@ public class TankFrame extends Frame {
                 bD = false;
                 break;
             case KeyEvent.VK_CONTROL:
-                myTank.fire();
+                gm.getMyTank().fire();
                 break;
             default:
                 break;
@@ -151,13 +122,13 @@ public class TankFrame extends Frame {
         // 如果没按任何方向键就不设定方向
         private void setMainTankDir(){
             if(!bL && !bR && !bU && !bD){
-                myTank.setMoving(false);
+                gm.getMyTank().setMoving(false);
             }else {
-                myTank.setMoving(true);
-                if (bL) myTank.setDir(Dir.LEFT);
-                if (bR) myTank.setDir(Dir.RIGHT);
-                if (bU) myTank.setDir(Dir.UP);
-                if (bD) myTank.setDir(Dir.DOWN);
+                gm.getMyTank().setMoving(true);
+                if (bL) gm.getMyTank().setDir(Dir.LEFT);
+                if (bR) gm.getMyTank().setDir(Dir.RIGHT);
+                if (bU) gm.getMyTank().setDir(Dir.UP);
+                if (bD) gm.getMyTank().setDir(Dir.DOWN);
             }
         }
 

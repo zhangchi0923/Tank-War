@@ -18,14 +18,15 @@ public class Tank {
     Rectangle rect = new Rectangle();
 
     FireStrategy fs;
+    GameModel gm;
 
-    public Tank(int x, int y, Dir dir,Group group,TankFrame tf) {
+    public Tank(int x, int y, Dir dir,Group group,GameModel gm) {
         super();
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
-        this.tf = tf;
+        this.gm = gm;
 
         rect.x = this.x;
         rect.y = this.y;
@@ -108,7 +109,7 @@ public class Tank {
 
     public void paint(Graphics g){
         if(!isAlive){
-            tf.tanks.remove(this);
+            gm.tanks.remove(this);
         }
         switch(dir){
         case LEFT:

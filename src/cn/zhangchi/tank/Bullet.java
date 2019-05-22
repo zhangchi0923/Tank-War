@@ -8,27 +8,26 @@ public class Bullet {
     private static final int SPEED = PropertyManager.getInt("bulletSpeed");
     private int x, y;
     private Dir dir;
-    private TankFrame tf;
     private Group group = Group.EVIL;
     static final int WIDTH = ResourceManager.getInstance().getBulletL().getWidth();
     static final int HEIGHT = ResourceManager.getInstance().getBulletL().getHeight();
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
 
     Rectangle rect = new Rectangle();
-
-    public Bullet(int x, int y, Dir dir, Group group, TankFrame tf) {
+    GameModel gm = null;
+    public Bullet(int x, int y, Dir dir, Group group, GameModel gm) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
-        this.tf = tf;
+        this.gm = gm;
 
         rect.x = this.x;
         rect.y = this.y;
         rect.width = WIDTH;
         rect.height = HEIGHT;
 
-        tf.bullets.add(this);
+        gm.bullets.add(this);
     }
 
     public int getX() {
@@ -41,7 +40,7 @@ public class Bullet {
 
     public void paint(Graphics g){
         if(!isAlive){
-            tf.bullets.remove(this);
+            gm.bullets.remove(this);
         }
         switch(dir){
         case LEFT:
@@ -96,7 +95,7 @@ public class Bullet {
             tank.die();
             int eX = tank.getX() + Tank.WIDTH/2 - Explode.WIDTH/2;
             int eY = tank.getY() + Tank.HEIGHT/2 - Explode.HEIGHT/2;
-            tf.explodes.add(new Explode(eX,eY,this.tf));
+            gm.explodes.add(new Explode(eX,eY,this.gm));
         }
     }
 
