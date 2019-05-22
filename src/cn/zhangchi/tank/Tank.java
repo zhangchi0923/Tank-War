@@ -3,7 +3,7 @@ package cn.zhangchi.tank;
 import java.awt.*;
 import java.util.Random;
 
-public class Tank {
+public class Tank extends GameObject{
     private int x, y;
     private Dir dir = Dir.DOWN;
     private final int SPEED = PropertyManager.getInt("tankSpeed");
@@ -109,7 +109,7 @@ public class Tank {
 
     public void paint(Graphics g){
         if(!isAlive){
-            gm.tanks.remove(this);
+            gm.remove(this);
         }
         switch(dir){
         case LEFT:

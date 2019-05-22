@@ -2,7 +2,7 @@ package cn.zhangchi.tank;
 
 import java.awt.*;
 
-public class Explode {
+public class Explode extends GameObject{
     private int x, y;
     static final int WIDTH = ResourceManager.getInstance().getExplodes()[0].getWidth();
     static final int HEIGHT = ResourceManager.getInstance().getExplodes()[0].getHeight();
@@ -27,7 +27,7 @@ public class Explode {
 
     public void paint(Graphics g) {
         if(!isAlive){
-            gm.explodes.remove(this);
+            gm.remove(this);
         }
         if(step >= ResourceManager.getInstance().getExplodes().length){
             isAlive = false;

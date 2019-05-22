@@ -4,7 +4,7 @@ import com.sun.xml.internal.bind.v2.TODO;
 
 import java.awt.*;
 
-public class Bullet {
+public class Bullet extends GameObject{
     private static final int SPEED = PropertyManager.getInt("bulletSpeed");
     private int x, y;
     private Dir dir;
@@ -27,7 +27,7 @@ public class Bullet {
         rect.width = WIDTH;
         rect.height = HEIGHT;
 
-        gm.bullets.add(this);
+        gm.add(this);
     }
 
     public int getX() {
@@ -40,7 +40,7 @@ public class Bullet {
 
     public void paint(Graphics g){
         if(!isAlive){
-            gm.bullets.remove(this);
+            gm.remove(this);
         }
         switch(dir){
         case LEFT:
@@ -95,7 +95,7 @@ public class Bullet {
             tank.die();
             int eX = tank.getX() + Tank.WIDTH/2 - Explode.WIDTH/2;
             int eY = tank.getY() + Tank.HEIGHT/2 - Explode.HEIGHT/2;
-            gm.explodes.add(new Explode(eX,eY,this.gm));
+            gm.add(new Explode(eX,eY,this.gm));
         }
     }
 
