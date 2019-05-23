@@ -4,7 +4,6 @@ import java.awt.*;
 import java.util.Random;
 
 public class Tank extends GameObject{
-    private int x, y;
     public int prevX, prevY;
     private Dir dir = Dir.DOWN;
     private final int SPEED = PropertyManager.getInt("tankSpeed");
@@ -12,7 +11,6 @@ public class Tank extends GameObject{
     private boolean isAlive = true;
     private Random random = new Random();
     private Group group = Group.EVIL;
-    private TankFrame tf;
     public static final int WIDTH = ResourceManager.getInstance().getTankL().getWidth();
     public static final int HEIGHT = ResourceManager.getInstance().getTankL().getHeight();
 
@@ -106,14 +104,6 @@ public class Tank extends GameObject{
         this.moving = moving;
     }
 
-    public TankFrame getTf() {
-        return tf;
-    }
-
-    public void setTf(TankFrame tf) {
-        this.tf = tf;
-    }
-
     public void paint(Graphics g){
         if(!isAlive){
             GameModel.getInstance().remove(this);
@@ -133,9 +123,18 @@ public class Tank extends GameObject{
             break;
         }
 
-
         move();
 
+    }
+
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
     }
 
     private void move() {

@@ -1,12 +1,9 @@
 package cn.zhangchi.tank;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import java.awt.*;
 
 public class Bullet extends GameObject{
     private static final int SPEED = PropertyManager.getInt("bulletSpeed");
-    private int x, y;
     private Dir dir;
     private Group group = Group.EVIL;
     static final int WIDTH = ResourceManager.getInstance().getBulletL().getWidth();
@@ -76,6 +73,17 @@ public class Bullet extends GameObject{
 
         move();
     }
+
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
+    }
+
     private void move(){
         switch(dir){
         case LEFT:

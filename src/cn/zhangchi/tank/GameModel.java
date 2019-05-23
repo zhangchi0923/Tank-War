@@ -33,7 +33,7 @@ public class GameModel {
         int initTankCount = PropertyManager.getInt("initTankCount");
 
         for(int i=0;i<initTankCount;i++){
-            add(new Tank(100+i*70,90,Dir.DOWN,Group.EVIL));
+            add(new Tank(100+i*80,85,Dir.DOWN,Group.EVIL));
         }
         add(new Wall(150,150,200,50));
         add(new Wall(550,150,200,50));

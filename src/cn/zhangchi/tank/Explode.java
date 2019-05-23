@@ -3,7 +3,6 @@ package cn.zhangchi.tank;
 import java.awt.*;
 
 public class Explode extends GameObject{
-    private int x, y;
     public static final int WIDTH = ResourceManager.getInstance().getExplodes()[0].getWidth();
     public static final int HEIGHT = ResourceManager.getInstance().getExplodes()[0].getHeight();
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
@@ -32,6 +31,16 @@ public class Explode extends GameObject{
         }else{
             g.drawImage(ResourceManager.getInstance().getExplodes()[step++],x,y,null);
         }
+    }
+
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
     }
 }
 
