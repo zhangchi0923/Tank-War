@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b263e71-7d00-424b-aad2-724725c60d59" name="Default Changelist" comment="牵强的给Tank的fire()方法加入观察者模式。&#10;TankFireObserver、TankFireEvent和实现了TankFireObserver的TankFireHandler,TankFireHandler">
-      <change afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/observer/TankFireEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/observer/TankFireHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/observer/TankFireObserver.java" afterDir="false" />
+    <list default="true" id="3b263e71-7d00-424b-aad2-724725c60d59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/DefaultFire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/DefaultFire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/zhangchi/tank/TankFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTank/cn/zhangchi/tank/Tank$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTank/cn/zhangchi/tank/Tank$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTank/cn/zhangchi/tank/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTank/cn/zhangchi/tank/Tank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTank/cn/zhangchi/tank/TankFrame$MyKeyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTank/cn/zhangchi/tank/TankFrame$MyKeyListener.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -291,7 +288,7 @@
       <workItem from="1558398761090" duration="9420000" />
       <workItem from="1558429243296" duration="7365000" />
       <workItem from="1558503987104" duration="383000" />
-      <workItem from="1558509624453" duration="23059000" />
+      <workItem from="1558509624453" duration="24059000" />
     </task>
     <task id="LOCAL-00001" summary="创建EnemyTank为了测试敌方坦克，但是还没成功；新增ResourceManager管理图片资源">
       <created>1558318039497</created>
@@ -433,11 +430,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558577747937</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="牵强的给Tank的fire()方法加入观察者模式：&#10;TankFireObserver、TankFireEvent和实现了TankFireObserver的TankFireHandler,TankFireHandler通过传入的TankfireEvent参数getSource到是哪个Tank在fire，然后调用其fire。&#10;而Tank中维护了一个List存储observers，当监听到了一个TankFireEvent时（由handleFireKey方法实现）遍历每个observer（这里实际上就是TankFireHandler）调用它们的actionOnFire方法。&#10;终极source就是TankFrame 中按下ctrl键触发Tank的handleFireKey。">
+      <created>1558593315174</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1558593315174</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92830000" />
+    <option name="totallyTimeSpent" value="93830000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -548,7 +552,8 @@
     <MESSAGE value="抽象出GameObjects将Tank、Bullet、Explode、都装进其中；创建接口Collider，并写出BulletTankCollider判定子弹和坦克相撞。在GameModel中的paint方法中（一种逻辑是）遍历objects中的所有元素，两两判定。" />
     <MESSAGE value="增加TankTankCollider、Wall物体并增加相应Collider、为此在Tank中新增了back()方法；&#10;将GameModel改写成单例模式、进一步解耦合。" />
     <MESSAGE value="增添装饰器模式、为GameObject增加装饰器" />
-    <option name="LAST_COMMIT_MESSAGE" value="增添装饰器模式、为GameObject增加装饰器" />
+    <MESSAGE value="牵强的给Tank的fire()方法加入观察者模式：&#10;TankFireObserver、TankFireEvent和实现了TankFireObserver的TankFireHandler,TankFireHandler通过传入的TankfireEvent参数getSource到是哪个Tank在fire，然后调用其fire。&#10;而Tank中维护了一个List存储observers，当监听到了一个TankFireEvent时（由handleFireKey方法实现）遍历每个observer（这里实际上就是TankFireHandler）调用它们的actionOnFire方法。&#10;终极source就是TankFrame 中按下ctrl键触发Tank的handleFireKey。" />
+    <option name="LAST_COMMIT_MESSAGE" value="牵强的给Tank的fire()方法加入观察者模式：&#10;TankFireObserver、TankFireEvent和实现了TankFireObserver的TankFireHandler,TankFireHandler通过传入的TankfireEvent参数getSource到是哪个Tank在fire，然后调用其fire。&#10;而Tank中维护了一个List存储observers，当监听到了一个TankFireEvent时（由handleFireKey方法实现）遍历每个observer（这里实际上就是TankFireHandler）调用它们的actionOnFire方法。&#10;终极source就是TankFrame 中按下ctrl键触发Tank的handleFireKey。" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/cn/zhangchi/test/ResourceManagerTest.java" />
