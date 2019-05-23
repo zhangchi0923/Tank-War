@@ -1,6 +1,12 @@
 package cn.zhangchi.tank;
 
+import cn.zhangchi.tank.observer.TankFireEvent;
+import cn.zhangchi.tank.observer.TankFireHandler;
+import cn.zhangchi.tank.observer.TankFireObserver;
+
 import java.awt.*;
+import java.util.List;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Tank extends GameObject{
@@ -135,6 +141,14 @@ public class Tank extends GameObject{
     @Override
     public int getHeight() {
         return HEIGHT;
+    }
+
+    private List<TankFireObserver> observers = Arrays.asList(new TankFireHandler());
+    public void handleFireKey(){
+        TankFireEvent event = new TankFireEvent(this);
+        for(TankFireObserver o:observers){
+            o.actionOnFire(event);
+        }
     }
 
     private void move() {
