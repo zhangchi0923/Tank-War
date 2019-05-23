@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class Tank extends GameObject{
     private int x, y;
+    public int prevX, prevY;
     private Dir dir = Dir.DOWN;
     private final int SPEED = PropertyManager.getInt("tankSpeed");
     private boolean moving = true;
@@ -12,21 +13,19 @@ public class Tank extends GameObject{
     private Random random = new Random();
     private Group group = Group.EVIL;
     private TankFrame tf;
-    static final int WIDTH = ResourceManager.getInstance().getTankL().getWidth();
-    static final int HEIGHT = ResourceManager.getInstance().getTankL().getHeight();
+    public static final int WIDTH = ResourceManager.getInstance().getTankL().getWidth();
+    public static final int HEIGHT = ResourceManager.getInstance().getTankL().getHeight();
 
     Rectangle rect = new Rectangle();
 
     FireStrategy fs;
-    GameModel gm;
 
-    public Tank(int x, int y, Dir dir,Group group,GameModel gm) {
+    public Tank(int x, int y, Dir dir,Group group) {
         super();
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
-        this.gm = gm;
 
         rect.x = this.x;
         rect.y = this.y;
@@ -57,6 +56,14 @@ public class Tank extends GameObject{
                 e.printStackTrace();
             }
         }
+    }
+
+    public Rectangle getRect() {
+        return rect;
+    }
+
+    public void setRect(Rectangle rect) {
+        this.rect = rect;
     }
 
     public Group getGroup() {
@@ -109,7 +116,7 @@ public class Tank extends GameObject{
 
     public void paint(Graphics g){
         if(!isAlive){
-            gm.remove(this);
+            GameModel.getInstance().remove(this);
         }
         switch(dir){
         case LEFT:
@@ -126,12 +133,17 @@ public class Tank extends GameObject{
             break;
         }
 
+
         move();
 
     }
 
     private void move() {
+        prevX = x;
+        prevY = y;
+
         if(!moving) return;
+
         switch(dir){
         case LEFT:
             x -= SPEED;
@@ -162,6 +174,11 @@ public class Tank extends GameObject{
         rect.y = this.y;
 
     }
+    public void back(){
+        x = prevX;
+        y = prevY;
+    }
+
 
     private void boundsCheck() {
         if(this.x < 0) x = 0;

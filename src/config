@@ -15,4 +15,7 @@
     #firestrategy
     goodFs=cn.zhangchi.tank.FourDirFireStrategy
     badFs=cn.zhangchi.tank.DefaultFire
+
+    #colliders
+    colliders=cn.zhangchi.tank.COR.BulletTankCollider,cn.zhangchi.tank.COR.TankTankCollider
 </tag>

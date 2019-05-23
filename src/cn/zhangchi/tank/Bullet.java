@@ -14,21 +14,20 @@ public class Bullet extends GameObject{
     private boolean isAlive = true; // 判断子弹是否存活，非存活状态下要在容器中删除，否则会有内存泄漏的问题
 
     Rectangle rect = new Rectangle();
-    GameModel gm = null;
-    public Bullet(int x, int y, Dir dir, Group group, GameModel gm) {
+    public Bullet(int x, int y, Dir dir, Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
-        this.gm = gm;
 
         rect.x = this.x;
         rect.y = this.y;
         rect.width = WIDTH;
         rect.height = HEIGHT;
 
-        gm.add(this);
+        GameModel.getInstance().add(this);
     }
+
 
     public int getX() {
         return x;
@@ -38,9 +37,25 @@ public class Bullet extends GameObject{
         return y;
     }
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Rectangle getRect() {
+        return rect;
+    }
+
+    public void setRect(Rectangle rect) {
+        this.rect = rect;
+    }
+
     public void paint(Graphics g){
         if(!isAlive){
-            gm.remove(this);
+            GameModel.getInstance().remove(this);
         }
         switch(dir){
         case LEFT:
@@ -87,19 +102,7 @@ public class Bullet extends GameObject{
 
     }
 
-    public void collidewith(Tank tank) {
-        if(this.group == tank.getGroup()) return;
-        //ToDo:只用一个rect记录边界，而不是每次都new出新rect
-        if (this.rect.intersects(tank.rect)){
-            this.die();
-            tank.die();
-            int eX = tank.getX() + Tank.WIDTH/2 - Explode.WIDTH/2;
-            int eY = tank.getY() + Tank.HEIGHT/2 - Explode.HEIGHT/2;
-            gm.add(new Explode(eX,eY,this.gm));
-        }
-    }
-
-    private void die() {
+    public void die() {
         this.isAlive = false;
     }
 }

@@ -2,26 +2,44 @@ package cn.zhangchi.tank;
 
 import cn.zhangchi.tank.COR.BulletTankCollider;
 import cn.zhangchi.tank.COR.Collider;
+import cn.zhangchi.tank.COR.ColliderChain;
+import cn.zhangchi.tank.COR.TankTankCollider;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameModel {
+    private static final GameModel INSTANCE = new GameModel();
 
-    Tank myTank = new Tank(200,200,Dir.DOWN,Group.GOOD,this);
+    static{
+        INSTANCE.init();
+    }
+
+    Tank myTank;
+
 //    List<Bullet> bullets = new ArrayList<>();
 //    List<Tank> tanks = new ArrayList<>();
 //    List<Explode> explodes = new ArrayList<>();
 
     private List<GameObject> objects = new ArrayList<>();
-    Collider collider = new BulletTankCollider();
-    public GameModel(){
+    ColliderChain chain = new ColliderChain();
+    private GameModel(){}
+
+    // init()函数中的内容不能放到构造器中，这样话new GameModel需要Tank、new Tank时需要GameModel死循环
+    public void init(){
+        myTank = new Tank(200,200,Dir.DOWN,Group.GOOD);
+
         int initTankCount = PropertyManager.getInt("initTankCount");
 
         for(int i=0;i<initTankCount;i++){
-            add(new Tank(100+i*70,100,Dir.DOWN,Group.EVIL,this));
+            add(new Tank(100+i*70,90,Dir.DOWN,Group.EVIL));
         }
+        add(new Wall(150,150,200,50));
+        add(new Wall(550,150,200,50));
+        add(new Wall(300,300,50,300));
+        add(new Wall(550,300,50,300));
+
     }
 
     public void add(GameObject go){
@@ -58,7 +76,7 @@ public class GameModel {
             for(int j=i+1;j<objects.size();j++){
                 GameObject o1 = objects.get(i);
                 GameObject o2 = objects.get(j);
-                collider.collide(o1,o2);
+                chain.collide(o1,o2);
             }
         }
 
@@ -75,6 +93,9 @@ public class GameModel {
 //        for(int i=0;i<explodes.size();i++){
 //            explodes.get(i).paint(g);
 //        }
+    }
 
+    public static GameModel getInstance(){
+        return INSTANCE;
     }
 }

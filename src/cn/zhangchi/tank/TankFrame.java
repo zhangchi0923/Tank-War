@@ -5,14 +5,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
-import java.util.ArrayList;
 
 
 // 继承Frame是为了重写其方法
 public class TankFrame extends Frame {
 
-    GameModel gm = new GameModel();
+    GameModel gm = GameModel.getInstance();
 
     static final int GAME_WIDTH = PropertyManager.getInt("gameWidth");
     static final int GAME_HEIGHT = PropertyManager.getInt("gameHeight");
