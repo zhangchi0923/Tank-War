@@ -6,6 +6,7 @@ import cn.zhangchi.tank.COR.ColliderChain;
 import cn.zhangchi.tank.COR.TankTankCollider;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +54,46 @@ public class GameModel {
         return myTank;
     }
 
+    public void save(){
+        File f = new File("/Users/zhangchi/IdeaProjects/MyTank/tank.data");
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(f));
+            // 需要让写出的对象所属的类实现serializable接口
+            oos.writeObject(myTank);
+            oos.writeObject(objects);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void load() {
+        File f = new File("/Users/zhangchi/IdeaProjects/MyTank/tank.data");
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(f));
+            myTank = (Tank)ois.readObject();
+            objects = (List)ois.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
     public void paint(Graphics g) {
 //        Color c = g.getColor();
 //        g.setColor(Color.WHITE);
@@ -98,4 +139,5 @@ public class GameModel {
     public static GameModel getInstance(){
         return INSTANCE;
     }
+
 }

@@ -143,7 +143,8 @@ public class Tank extends GameObject{
         return HEIGHT;
     }
 
-    private List<TankFireObserver> observers = Arrays.asList(new TankFireHandler());
+    // observer 两种方式：1.transient 这样序列化时不会理会observer; 2.observer也实现序列化接口
+    private /*transient*/ List<TankFireObserver> observers = Arrays.asList(new TankFireHandler());
     public void handleFireKey(){
         TankFireEvent event = new TankFireEvent(this);
         for(TankFireObserver o:observers){
